@@ -2,13 +2,13 @@ import { getAllHeros } from "@/actions/get-heros";
 import HeroCard from "@/components/cards/HeroCard";
 import Grid from "@/components/Grid";
 import SearchBar from "@/components/SearchBar";
-import { use } from "react";
+
 
 
 interface HeroPageProps {
-  searchParams : {
+  searchParams : Promise<{
     s: string;
-  }
+  }>
 }
 
 const HeroPage: React.FC<HeroPageProps> = async ({searchParams}) => {

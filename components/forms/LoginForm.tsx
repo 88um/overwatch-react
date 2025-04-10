@@ -41,12 +41,12 @@ const LoginForm: React.FC<LoginFormProps> = ({login, setUserName}) => {
         const response = await logIn(values.username, values.password)
         if (response?.success){
             login()
-            setUserName(response?.username!)
-            toast.success(response?.message!)
+            setUserName(response?.username ?? "")
+            toast.success(response?.message)
             router.push("/heroes")
         }
         else{
-            toast.error(response?.message!)
+            toast.error(response?.message)
         }
       }
   return (
