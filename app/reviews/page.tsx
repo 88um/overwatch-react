@@ -1,0 +1,28 @@
+import { getAllReviews } from "@/actions/reviews";
+import ReviewCard from "@/components/cards/ReviewCard";
+import ReviewForm from "@/components/forms/ReviewForm";
+
+
+
+
+interface ReviewsPageProps {
+
+}
+
+const ReviewsPage: React.FC<ReviewsPageProps> = async ({}) => {
+    const reviews = await getAllReviews()
+    if (reviews.length == 0){
+        return (<div>
+            No reviews found. Why don't you write one!
+        </div>)
+    }
+  return (
+    <div className="max-w-7xl mx-auto m-8">
+        {reviews.map((review,i)=> <ReviewCard key={i} {...review}/>)}
+        <ReviewForm/>
+    </div>
+
+  );
+};
+
+export default ReviewsPage;
