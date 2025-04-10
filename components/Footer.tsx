@@ -1,9 +1,7 @@
 
-interface FooterProps {
 
-}
 
-const Footer: React.FC<FooterProps> = ({}) => {
+const Footer: React.FC= ({}) => {
   return (
     <div className="flex items-center justify-center w-full bg-black p-8">
         <p className="text-white">

@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -29,7 +28,7 @@ const reviewSchema = z.object({
 type ReviewFormValues = z.infer<typeof reviewSchema>;
 
 const ReviewForm: React.FC = () => {
-   const { isLoggedIn, login, logout, setUserName } = useAuthStore();
+   const { isLoggedIn } = useAuthStore();
    const disabled = !isLoggedIn;
   const form = useForm<ReviewFormValues>({
     resolver: zodResolver(reviewSchema),

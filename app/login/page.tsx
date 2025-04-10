@@ -1,17 +1,15 @@
 "use client";
 import LoginForm from "@/components/forms/LoginForm";
 import SignUpForm from "@/components/forms/SignUpForm";
-import { Button } from "@/components/ui/button";
 import { useAuthStore } from "@/stores/useAuthStore";
-import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-interface LoginPageProps {}
 
-const LoginPage: React.FC<LoginPageProps> = ({}) => {
+
+const LoginPage: React.FC = ({}) => {
   const [typ, setTyp] = useState(true);
   const router = useRouter();
-  const { isLoggedIn} = useAuthStore();
+  const { isLoggedIn, login, setUserName} = useAuthStore();
   useEffect(() => {
     if (isLoggedIn) {
       router.push("/");
@@ -24,9 +22,9 @@ const LoginPage: React.FC<LoginPageProps> = ({}) => {
         <h1 className="text-5xl bold mb-10">{typ ? "Login Form" : "Sign up Form"}</h1>
         {typ ? (
           <div>
-            <LoginForm />
+            <LoginForm login={login} setUserName={setUserName}/>
             <div className="flex items-center justify-center m-5 space-x-2">
-              <p>Don't have an account? </p>
+              <p>Don&apos;t have an account? </p>
               <button
                 className="bg-transparent text-sky-500 cursor-pointer"
                 onClick={() => setTyp(!typ)}
@@ -37,7 +35,7 @@ const LoginPage: React.FC<LoginPageProps> = ({}) => {
           </div>
         ) : (
           <div>
-            <SignUpForm />
+            <SignUpForm login={login} setUserName={setUserName}/>
             <div className="flex items-center justify-center m-5 space-x-2">
               <p>Already have an account? </p>
               <button

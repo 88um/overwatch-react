@@ -2,17 +2,15 @@
 
 
 import toast from 'react-hot-toast';
-import { logIn, signUp } from "@/actions/log-in";
-import { useAuthStore } from "@/stores/useAuthStore";
+import { signUp } from "@/actions/log-in";
 import { zodResolver } from "@hookform/resolvers/zod"
-import { redirect, useRouter } from "next/navigation";
+import {useRouter } from "next/navigation";
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -32,11 +30,11 @@ const formSchema = z.object({
 
 
 interface SignUpFormProps {
-
+  login : () => void;
+  setUserName : (username : string) => void;
 }
 
-const SignUpForm: React.FC<SignUpFormProps> = ({}) => {
-    const { isLoggedIn, login, logout, setUserName } = useAuthStore();
+const SignUpForm: React.FC<SignUpFormProps> = ({login,setUserName}) => {
     const router = useRouter();
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -52,11 +50,11 @@ const SignUpForm: React.FC<SignUpFormProps> = ({}) => {
         if (response?.success){
             login()
             setUserName(response?.username!)
-            toast.success(response?.message)
+            toast.success(response?.message!)
             router.push("/heroes/")
         }
         else{
-            toast.error(response?.message)
+            toast.error(response?.message!)
         }
       }
   return (

@@ -4,12 +4,11 @@ import { routes } from "@/data";
 import { useAuthStore } from "@/stores/useAuthStore";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
-import { Button } from "./ui/button";
 import Image from "next/image";
 import toast from "react-hot-toast";
 
 const Header: React.FC = () => {
-  const { isLoggedIn, login, logout, setUserName } = useAuthStore();
+  const { isLoggedIn, logout, setUserName } = useAuthStore();
   const path = usePathname();
   const imgSize = 70;
   useEffect(() => {

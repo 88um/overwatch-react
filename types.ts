@@ -6,3 +6,9 @@ export interface Hero {
     ability : string,
     image : string
 }
+
+export interface Map {
+    name : string;
+    imgSrc : string;
+    location: string
+}

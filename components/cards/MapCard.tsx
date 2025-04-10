@@ -1,7 +1,9 @@
 'use client';
 
-interface MapCardProps {
+import { Map } from "@/types";
 
+interface MapCardProps {
+map : Map
 }
 
 const MapCard: React.FC<MapCardProps> = ({}) => {

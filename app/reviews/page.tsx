@@ -5,15 +5,12 @@ import ReviewForm from "@/components/forms/ReviewForm";
 
 
 
-interface ReviewsPageProps {
 
-}
-
-const ReviewsPage: React.FC<ReviewsPageProps> = async ({}) => {
+const ReviewsPage: React.FC = async ({}) => {
     const reviews = await getAllReviews()
     if (reviews.length == 0){
         return (<div>
-            No reviews found. Why don't you write one!
+            No reviews found. Why don&apos;t you write one!
         </div>)
     }
   return (

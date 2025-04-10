@@ -23,7 +23,7 @@ const HeroPage: React.FC<HeroPageProps> = async ({searchParams}) => {
       <SearchBar/>
       {heros.length == 0 ? (
         <div className="w-full h-full my-40 text-3xl text-black text-center ">
-         No heros found for search term '{s}'
+         No heros found for search term &apos;{s}&apos;
        </div>
       ) : (
         <Grid>

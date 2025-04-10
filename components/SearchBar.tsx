@@ -4,11 +4,9 @@ import { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
-interface SearchBarProps {
 
-}
 
-const SearchBar: React.FC<SearchBarProps> = ({}) => {
+const SearchBar: React.FC= ({}) => {
     const [term, setTerm] = useState('');
     const router = useRouter();
     const pathname = usePathname();
