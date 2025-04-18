@@ -6,11 +6,19 @@ import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import Image from "next/image";
 import toast from "react-hot-toast";
+import { deleteSession} from '@/lib/session';
 
 const Header: React.FC = () => {
   const { isLoggedIn, logout, setUserName } = useAuthStore();
   const path = usePathname();
   const imgSize = 70;
+
+  // Filter routes based on authentication state
+  const filteredRoutes = routes.filter(route => {
+    if (isLoggedIn) return true; // Show all routes when logged in
+    return route.href === '/' || route.href === '/reviews'; // Show only home and reviews when logged out
+  });
+
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       const menu = document.getElementById("hamburgerMenu");
@@ -37,6 +45,13 @@ const Header: React.FC = () => {
     }
   };
 
+  const handleLogout = async () => {
+    await deleteSession();
+    logout();
+    setUserName("");
+    toast.success("Logged out successfully");
+  };
+
   return (
     <header className="bg-[#F99E1A] py-3">
       {/* Hamburger Side Menu */}
@@ -47,7 +62,7 @@ const Header: React.FC = () => {
         <div className="p-4">
           <h5 className="text-white mb-4 text-lg font-semibold">Navigation</h5>
           <ul className="space-y-2 w-full">
-            {routes.map((route, i) => (
+            {filteredRoutes.map((route, i) => (
               <li key={i} className="flex w-full">
                 <a
                   href={route.href}
@@ -62,11 +77,12 @@ const Header: React.FC = () => {
               </li>
             ))}
             {isLoggedIn ? (
-              <button className="text-white cursor-pointer hover:bg-white/40 hover:text-white p-2 hover:w-full hover:rounded" onClick={() =>{
-                logout()
-                setUserName("")
-                toast.success("Logged out successfully")
-              }}>Log out</button>
+              <button 
+                className="text-white cursor-pointer hover:bg-white/40 hover:text-white p-2 hover:w-full hover:rounded" 
+                onClick={handleLogout}
+              >
+                Log out
+              </button>
             ) : (
               <li className="flex w-full">
                 <a
@@ -81,7 +97,6 @@ const Header: React.FC = () => {
                 </a>
               </li>
             )}
-            
           </ul>
         </div>
       </div>
@@ -96,7 +111,6 @@ const Header: React.FC = () => {
           ☰
         </button>
         <Image src='/logo.png' alt="logo" width={imgSize} height={imgSize} className="rounded-full"/>
-      
       </nav>
 
       <style jsx>{`

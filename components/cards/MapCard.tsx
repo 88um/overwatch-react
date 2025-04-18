@@ -6,10 +6,10 @@ interface MapCardProps {
 map : Map
 }
 
-const MapCard: React.FC<MapCardProps> = ({}) => {
+const MapCard: React.FC<MapCardProps> = ({map}) => {
   return (
     <div>
-
+      {map.name}
     </div>
   );
 };
