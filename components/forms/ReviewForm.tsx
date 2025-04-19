@@ -17,6 +17,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useAuthStore } from "@/stores/useAuthStore";
 import toast from "react-hot-toast";
+import { addReview } from "@/actions/reviews";
+import {useRouter} from 'next/navigation'
 
 // Schema
 const reviewSchema = z.object({
@@ -30,6 +32,7 @@ type ReviewFormValues = z.infer<typeof reviewSchema>;
 const ReviewForm: React.FC = () => {
    const { isLoggedIn } = useAuthStore();
    const disabled = !isLoggedIn;
+   const router = useRouter()
   const form = useForm<ReviewFormValues>({
     resolver: zodResolver(reviewSchema),
     defaultValues: {
@@ -39,12 +42,19 @@ const ReviewForm: React.FC = () => {
     },
   });
 
-  const onSubmit = (data: ReviewFormValues) => {
+  const onSubmit = async (data: ReviewFormValues) => {
     if (disabled){
-        toast.error("You have to be loged in to submit a review!")
+        toast.error("You have to be logged in to submit a review!")
     }
-    console.log("Review Submitted:", data);
-    // redirect("/thank-you"); // Optional
+    const response = await addReview(data.report, data.name, Number(data.rating))
+    if (response?.success){
+      toast.success("Sucessfully added review!")
+      router.refresh()
+    }
+    else{
+      toast.error("Something went wrong!")
+    }
+
   };
 
   return (

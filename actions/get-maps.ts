@@ -1,11 +1,17 @@
 'use server'
+import Fuse from 'fuse.js';
+import { maps } from "@/data"
 
-import { heroes } from "@/data"
 
-export const getHero = async (name : string) =>{
-    return heroes.find((hero) => hero.name === name);
-}
+const fuse = new Fuse(maps, {
+    keys: ['name'],
+    threshold: 0.4, // Lower = stricter match (0.0 = perfect match only)
+  });
 
-export const getAllHeros = async () =>{
-    return heroes;
+
+export const getAllMaps = async(query? : string)=>{
+
+    if (!query) return maps;
+    const result =fuse.search(query);
+    return result.map(r => r.item);
 }

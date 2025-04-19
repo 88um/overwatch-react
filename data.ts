@@ -3,9 +3,9 @@ import { Hero } from "./types"
 
 export const maps = [
     {
-        name : "",
-        imgSrc : "",
-        location: ""
+        name : "My map",
+        imgSrc : "/download.jpeg",
+        location: "Hello"
 
     }
 ]
@@ -38,6 +38,13 @@ export const reviews = [
     {
         stars : 4,
         name : "joshua",
+        username : "d",
+        text: "this sucks ass"
+    },
+    {
+        stars : 4,
+        name : "joshua",
+        username : "d",
         text: "this sucks ass"
     }
 ]
