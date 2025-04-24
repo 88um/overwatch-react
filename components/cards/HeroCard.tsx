@@ -1,12 +1,6 @@
 "use client";
 
 import { Hero } from "@/types";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardTitle,
-} from "../ui/card";
 import Image from "next/image";
 import { Button } from "../ui/button";
 
@@ -16,39 +10,41 @@ interface HeroCardProps {
 
 const HeroCard: React.FC<HeroCardProps> = ({ hero }) => {
   return (
-    <div className="m-5">
-      <Card className="overflow-hidden">
-        <div className="flex flex-col md:flex-row w-full p-5 space-y-4 md:space-y-0 md:space-x-10 items-center">
-          <div className="w-full md:w-1/2">
-            <div className="relative w-full h-64 md:h-80 rounded-xl overflow-hidden">
+    <div className="m-4">
+      <div className="bg-[#ff9c00] rounded-xl overflow-hidden border-2 border-blue-500/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+        <div className="flex flex-col md:flex-row w-full p-5 gap-6 items-center">
+          {/* Hero Image */}
+          <div className="w-full md:w-2/5">
+            <div className="relative w-full h-48 md:h-56 rounded-lg overflow-hidden border-2 border-blue-500/20">
               <Image
                 src={hero.image}
-                alt="Hero pic"
+                alt={hero.name}
                 fill
-                className="object-cover rounded-xl"
+                className="object-cover"
+                priority
               />
             </div>
           </div>
 
-          <div className="md:w-1/2 space-y-2">
-            <CardTitle>{hero.name}</CardTitle>
-            <CardDescription>
-              {`${hero.name} is a ${hero.role} 
-              type hero from ${hero.nationality}. 
-              ${hero.name}'s special ability is ${hero.ability} and his special weapon is the ${hero.weapon}.`}
-            </CardDescription>
+          {/* Hero Info */}
+          <div className="w-full md:w-3/5 space-y-3 text-[#0a1428]">
+            <h3 className="text-2xl font-bold">{hero.name}</h3>
+            <p className="text-sm md:text-base">
+              {`${hero.name} is a ${hero.role} hero from ${hero.nationality}. 
+              Special ability: ${hero.ability}. Weapon: ${hero.weapon}.`}
+            </p>
+            
+            <Button 
+              className="w-full bg-[#00aeef] hover:bg-[#0088cc] text-white mt-4"
+              variant="default"
+            >
+              View Hero
+            </Button>
           </div>
         </div>
-
-        <CardContent>
-          <Button className="cursor-pointer flex w-full justify-center text-center items-center">
-            Go
-          </Button>
-        </CardContent>
-      </Card>
+      </div>
     </div>
   );
 };
 
 export default HeroCard;
-
