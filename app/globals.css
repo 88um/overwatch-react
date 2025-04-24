@@ -48,7 +48,7 @@
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
@@ -119,4 +119,58 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer components {
+
+  .ow-glow {
+    text-shadow: 0 0 8px rgba(0, 174, 239, 0.6);
+  }
+  
+  .ow-glow-border {
+    box-shadow: 0 0 12px rgba(0, 174, 239, 0.3);
+  }
+
+  .ow-border-gradient {
+    position: relative;
+  }
+  
+  .ow-border-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(45deg, 
+      #00aeef, 
+      #ff9c00, 
+      #00aeef);
+  }
+
+  .ow-border-gradient {
+    position: relative;
+    border-radius: 0.5rem;
+    background: linear-gradient(45deg, #00aeef, #ff9c00, #00aeef);
+    padding: 2px;
+  }
+  
+  .ow-border-gradient > * {
+    position: relative;
+    background: var(--background);
+    border-radius: calc(0.5rem - 2px);
+    z-index: 1;
+  }
+
+  @keyframes ow-rotate {
+    to { transform: rotate(360deg); }
+  }
+}
+
+/* Add to globals.css */
+.card-hover-effect {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card-hover-effect:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 174, 239, 0.2);
 }
