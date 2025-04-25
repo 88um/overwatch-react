@@ -2,8 +2,10 @@ export interface Hero {
     name : string,
     role : string,
     nationality : string,
+    comp : string,
     weapon : string,
-    ability : string,
+    abilities : string,
+    ult : string,
     image : string
 }
 
