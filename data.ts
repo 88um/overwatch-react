@@ -7,7 +7,19 @@ export const maps = [
         imgSrc : "/download.jpeg",
         location: "Hello"
 
-    }
+    },
+    {
+      name : "My map2",
+      imgSrc : "/download.jpeg",
+      location: "Hello"
+
+  },
+  {
+    name : "My map3",
+    imgSrc : "/download.jpeg",
+    location: "Hello"
+
+}
 ]
 
 export const routes = [

@@ -4,7 +4,11 @@ import { getSession } from './lib/session';
 export async function middleware(request: Request) {
   const session = await getSession();
   const { pathname } = new URL(request.url);
-
+  if (pathname === '/login' && session) {
+    // If the user is already logged in, redirect them to the home page
+    return NextResponse.redirect(new URL('/', request.url));
+    
+  }
   // List of protected routes that require authentication
   const protectedRoutes = ['/heroes', '/maps'];
   
