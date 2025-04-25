@@ -91,7 +91,7 @@ const CompForm: React.FC<CompFormProps> = ({ setComp, heroes, maps }) => {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const response = await createTeam(values)
-    setComp(JSON.stringify(values));
+    setComp(response);
   }
 
   return (
