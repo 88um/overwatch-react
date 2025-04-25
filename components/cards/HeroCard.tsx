@@ -20,7 +20,7 @@ const HeroCard: React.FC<HeroCardProps> = ({ hero }) => {
                 src={hero.image}
                 alt={hero.name}
                 fill
-                className="object-cover"
+                className="object-contain" 
                 priority
               />
             </div>
