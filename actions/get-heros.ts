@@ -3,7 +3,7 @@ import Fuse from 'fuse.js';
 import { heroes } from "@/data"
 
 const fuse = new Fuse(heroes, {
-    keys: ['name', 'role', 'ability'],
+    keys: ['name', 'role', 'abilities', 'ult', 'comp'],
     threshold: 0.4, // Lower = stricter match (0.0 = perfect match only)
   });
 

@@ -20,7 +20,11 @@ const HeroCard: React.FC<HeroCardProps> = ({ hero }) => {
                 src={hero.image}
                 alt={hero.name}
                 fill
-                className="object-cover"
+
+                className="object-contain" 
+
+         
+
                 priority
               />
             </div>
@@ -31,7 +35,11 @@ const HeroCard: React.FC<HeroCardProps> = ({ hero }) => {
             <h3 className="text-2xl font-bold">{hero.name}</h3>
             <p className="text-sm md:text-base">
               {`${hero.name} is a ${hero.role} hero from ${hero.nationality}. 
-              Special ability: ${hero.ability}. Weapon: ${hero.weapon}.`}
+
+              Comp: ${hero.comp}. Abilities: ${hero.abilities}.
+              Weapon: ${hero.weapon}.
+              Ultimate: ${hero.ult}`}
+
             </p>
             
             <Button 
