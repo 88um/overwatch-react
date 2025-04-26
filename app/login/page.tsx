@@ -10,11 +10,7 @@ const LoginPage: React.FC = ({}) => {
   const [typ, setTyp] = useState(true);
   const router = useRouter();
   const { isLoggedIn, login, setUserName} = useAuthStore();
-  useEffect(() => {
-    if (isLoggedIn) {
-      router.push("/");
-    }
-  }, [isLoggedIn, router]);
+
 
   return (
     <div className="flex w-full justify-center">
