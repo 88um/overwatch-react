@@ -1,6 +1,7 @@
 import { getAllHeros } from "@/actions/get-heros";
 import HeroCard from "@/components/cards/HeroCard";
 import Grid from "@/components/Grid";
+import HeroModal from "@/components/modal/HeroModal";
 import SearchBar from "@/components/SearchBar";
 
 interface HeroPageProps {
@@ -29,6 +30,7 @@ const HeroPage: React.FC<HeroPageProps> = async ({ searchParams }) => {
           </Grid>
         )}
       </div>
+      <HeroModal/>
     </div>
   );
 };
