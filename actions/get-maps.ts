@@ -4,7 +4,7 @@ import { maps } from "@/data"
 
 
 const fuse = new Fuse(maps, {
-    keys: ['name'],
+    keys: ['name', 'location', 'type', 'attackComp', 'defenseComp'],
     threshold: 0.4, // Lower = stricter match (0.0 = perfect match only)
   });
 

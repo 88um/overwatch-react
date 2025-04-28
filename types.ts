@@ -6,11 +6,14 @@ export interface Hero {
     weapon : string,
     abilities : string,
     ult : string,
-    image : string
+    image : string,
 }
 
 export interface Map {
-    name : string;
-    imgSrc : string;
-    location: string
+    name : string,
+    image : string,
+    location: string,
+    type: string,
+    attackComp: string,
+    defenseComp: string,
 }

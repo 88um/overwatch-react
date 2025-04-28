@@ -1,13 +1,232 @@
 import { Hero } from "./types"
+import { Map } from "./types";
 
 
-export const maps = [
+export const maps : Map[] = [
+  //Control
     {
-        name : "My map",
-        imgSrc : "/download.jpeg",
-        location: "Hello"
+      name : "Antarctic Peninsula",
+      type : "Control",
+      image : "/maps/antarctic.webp",
+      location: "Antarctica",
+      attackComp: "Brawl",
+      defenseComp: "Brawl",
+    },
+    {
+      name : "Busan",
+      type : "Control",
+      image : "/maps/busan.webp",
+      location: "Korea",
+      attackComp: "Brawl",
+      defenseComp: "Brawl",
+    },      
+    {
+      name : "Ilios",
+      type : "Control",
+      image : "/maps/ilios.webp",
+      location: "Greece",
+      attackComp: "Brawl",
+      defenseComp: "Brawl",
+    },
+    {
+      name : "Lijang Tower",
+      type : "Control",
+      image : "/maps/lijang.webp",
+      location: "China",
+      attackComp: "Brawl",
+      defenseComp: "Brawl",
+    },
+    {
+      name : "Nepal",
+      type : "Control",
+      image : "/maps/nepal.webp",
+      location: "Nepal",
+      attackComp: "Brawl",
+      defenseComp: "Brawl",
+  },
+  {
+    name : "Oasis",
+    type : "Control",
+    image : "/maps/oasis.webp",
+    location: "Iraq",
+    attackComp: "Brawl",
+    defenseComp: "Brawl",
+  },
+  {
+    name : "Samoa",
+    type : "Control",
+    image : "/maps/samoa.webp",
+    location: "Samoa",
+    attackComp: "Brawl",
+    defenseComp: "Brawl",
+  },
+  // Escort
+{
+  name: "Circuit Royal",
+  type: "Escort",
+  image: "/maps/circuit.webp",
+  location: "Monaco",
+  attackComp: "Poke",
+  defenseComp: "Poke",
+},
+{
+  name: "Dorado",
+  type: "Escort",
+  image: "/maps/dorado.jpg",
+  location: "Mexico",
+  attackComp: "Dive",
+  defenseComp: "Poke",
+},
+{
+  name: "Havana",
+  type: "Escort",
+  image: "/maps/havana.webp",
+  location: "Cuba",
+  attackComp: "Poke",
+  defenseComp: "Poke",
+},
+{
+  name: "Junkertown",
+  type: "Escort",
+  image: "/maps/junkertown.webp",
+  location: "Australia",
+  attackComp: "Poke or Dive",
+  defenseComp: "Poke",
+},
+{
+  name: "Rialto",
+  type: "Escort",
+  image: "/maps/rialto.webp",
+  location: "Italy",
+  attackComp: "Poke or Dive",
+  defenseComp: "Poke",
+},
+{
+  name: "Route 66",
+  type: "Escort",
+  image: "/maps/route.webp",
+  location: "USA",
+  attackComp: "Poke or Dive",
+  defenseComp: "Poke",
+},
+{
+  name: "Shambali Monastery",
+  type: "Escort",
+  image: "/maps/shambali.webp",
+  location: "Nepal",
+  attackComp: "Poke or Dive",
+  defenseComp: "Poke",
+},
+{
+  name: "Watchpoint: Gibraltar",
+  type: "Escort",
+  image: "/maps/gibby.webp",
+  location: "Gibraltar",
+  attackComp: "Poke or Dive",
+  defenseComp: "Poke",
+},
 
-    }
+// Hybrid
+{
+  name: "Blizzard World",
+  type: "Hybrid",
+  image: "/maps/blizzardworld.webp",
+  location: "USA",
+  attackComp: "Any",
+  defenseComp: "Poke",
+},
+{
+  name: "Eichenwalde",
+  type: "Hybrid",
+  image: "/maps/eichenwalde.webp",
+  location: "Germany",
+  attackComp: "Brawl",
+  defenseComp: "Brawl",
+},
+{
+  name: "Hollywood",
+  type: "Hybrid",
+  image: "/maps/hollywood.webp",
+  location: "USA",
+  attackComp: "Brawl or Dive",
+  defenseComp: "Brawl",
+},
+{
+  name: "King's Row",
+  type: "Hybrid",
+  image: "/maps/kingsrow.webp",
+  location: "England",
+  attackComp: "Brawl",
+  defenseComp: "Brawl",
+},
+{
+  name: "Midtown",
+  type: "Hybrid",
+  image: "/maps/midtown.webp",
+  location: "USA",
+  attackComp: "Brawl or Poke",
+  defenseComp: "Brawl or Poke",
+},
+{
+  name: "Numbani",
+  type: "Hybrid",
+  image: "/maps/numbani.webp",
+  location: "Nigeria",
+  attackComp: "Any",
+  defenseComp: "Poke",
+},
+{
+  name: "Paraíso",
+  type: "Hybrid",
+  image: "/maps/paraiso.webp",
+  location: "Brazil",
+  attackComp: "Any",
+  defenseComp: "Poke",
+},
+
+// Push
+{
+  name: "Colosseo",
+  type: "Push",
+  image: "/maps/colosseo.webp",
+  location: "Italy",
+  attackComp: "Dive or Brawl",
+  defenseComp: "Dive or Brawl",
+},
+{
+  name: "Esperança",
+  type: "Push",
+  image: "/maps/esperanca.webp",
+  location: "Portugal",
+  attackComp: "Dive or Brawl",
+  defenseComp: "Dive or Brawl",
+},
+{
+  name: "New Queen Street",
+  type: "Push",
+  image: "/maps/newqueenstreet.webp",
+  location: "Canada",
+  attackComp: "Brawl",
+  defenseComp: "Brawl",
+},
+
+// Flashpoint
+{
+  name: "New Junk City",
+  type: "Flashpoint",
+  image: "/maps/newjunkcity.webp",
+  location: "Australia",
+  attackComp: "Brawl",
+  defenseComp: "Brawl",
+},
+{
+  name: "Suravasa",
+  type: "Flashpoint",
+  image: "/maps/suravasa.webp",
+  location: "India",
+  attackComp: "Brawl",
+  defenseComp: "Brawl",
+},
 ]
 
 export const routes = [
