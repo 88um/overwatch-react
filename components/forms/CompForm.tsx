@@ -51,7 +51,7 @@ const formSchema = z
     // valid if less than all 5 roles are filled
     return filledCount < roles.length;
   }, {
-    path: ["map"],
+    path: ["support2"],
     message: "Please leave at least one player role empty.",
   })
   // 2) “No duplicate DPS picks”
