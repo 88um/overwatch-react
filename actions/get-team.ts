@@ -1,13 +1,20 @@
 'use server';
-
-
-import { db } from "@/db/init";
-import { Team } from "@/types";
+import { getTeams } from './create-team';
 
 export const getTeam = async (id: string) => {
-  const team = db.data.teams.find((team) => team.id === id);
-  if (!team) {
-    return { success: false, message: "Team not found." };
+  try {
+    const teams = await getTeams();
+    const team = teams.find(t => t.id === id);
+    
+    return { 
+      success: true, 
+      team 
+    };
+  } catch (error) {
+    console.error('Error getting team:', error);
+    return { 
+      success: false, 
+      message: 'Failed to get team' 
+    };
   }
-  return { success: true, team };
 };
