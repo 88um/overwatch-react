@@ -107,13 +107,24 @@ export const createTeam = async (values: CreateTeamValues) => {
   };
 
   try {
-    // Only write to database in development
     if (!isProduction()) {
       db.data.teams.push(team);
       await db.write();
     } else {
-      // In production, store in memory
-      productionTeams.push(team);
+      const response = await fetch(`${process.env.URL}/team`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(team),
+      });
+
+      if (!response.ok) {
+        if (response.status === 400) {
+          return { success: false, message: 'Team ID already exists' };
+        }
+        throw new Error('Failed to create team');
+      }
     }
 
     return { success: true, id: team.id };
