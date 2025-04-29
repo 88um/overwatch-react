@@ -19,3 +19,10 @@ export interface Map {
     attackComp: string,
     defenseComp: string,
 }
+
+export interface Review {
+    stars: number,
+    name: string,
+    username: string,
+    text: string,
+}

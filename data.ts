@@ -1,4 +1,4 @@
-import { Hero } from "./types"
+import { Hero, Review } from "./types"
 import { Map } from "./types";
 
 
@@ -282,7 +282,7 @@ export const routes = [
 ]
 
 
-export const reviews = [
+export const reviews : Review[] = [
     {
         stars : 4,
         name : "joshua",
