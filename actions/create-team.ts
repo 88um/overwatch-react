@@ -17,6 +17,8 @@ interface CreateTeamValues {
 const generateId = (): string => {
   return `team-${Date.now()}-${Math.floor(Math.random() * 10000)}`;
 };
+// Store teams in memory when in production
+let productionTeams: Team[] = [];
 
 export const createTeam = async (values: CreateTeamValues) => {
   const allHeroes: Hero[] = heroes;
@@ -104,12 +106,32 @@ export const createTeam = async (values: CreateTeamValues) => {
     comp: finalComp,
   };
 
-  // Save the team to the database
-  db.data.teams.push(team);
-  if (!isProduction()){
-    await db.write();
-  }
- 
+  try {
+    // Only write to database in development
+    if (!isProduction()) {
+      db.data.teams.push(team);
+      await db.write();
+    } else {
+      // In production, store in memory
+      productionTeams.push(team);
+    }
 
-  return { success: true, id: team.id }; // Return the team ID
+    return { success: true, id: team.id };
+  } catch (error) {
+    console.error('Error saving team:', error);
+    return { 
+      success: false, 
+      message: 'Failed to save team' 
+    };
+  }
+};
+
+// Add a function to get teams that works in both environments
+export const getTeams = async () => {
+  if (isProduction()) {
+    return productionTeams;
+  } else {
+    await db.read();
+    return db.data.teams;
+  }
 };
