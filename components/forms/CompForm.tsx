@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import {
@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/select";
 import { Hero, Map } from "@/types";
 import { createTeam } from "@/actions/create-team";
+import { useRouter } from "next/navigation";
 
 const formSchema = z
   .object({
@@ -33,6 +34,8 @@ const formSchema = z
     support: z.string().optional(),
     support2: z.string().optional(),
     map: z.string().min(1, "Please choose a map"),
+    side: z.enum(["attack", "defense"], { required_error: "Please pick attack or defense" }),
+
   })
   // 1) “Must leave at least one role empty”
   .refine((data) => {
@@ -48,7 +51,7 @@ const formSchema = z
     // valid if less than all 5 roles are filled
     return filledCount < roles.length;
   }, {
-    path: ["map"],
+    path: ["support2"],
     message: "Please leave at least one player role empty.",
   })
   // 2) “No duplicate DPS picks”
@@ -77,6 +80,7 @@ interface CompFormProps {
 }
 
 const CompForm: React.FC<CompFormProps> = ({ setComp, heroes, maps }) => {
+  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -86,13 +90,23 @@ const CompForm: React.FC<CompFormProps> = ({ setComp, heroes, maps }) => {
       support: "",
       support2: "",
       map: "",
+      side: undefined,
     },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    const response = await createTeam(values)
-    setComp(response);
-  }
+    const response = await createTeam({
+      ...values,
+      side: values.side === "attack" ? "Attack" : "Defense",
+    });
+    if (response.success) {
+      router.push(`/comp/${response.id}`);
+    }
+    else{
+      setComp(response.message??"Error");
+    }
+  }  
+
 
   return (
     <Form {...form}>
@@ -117,6 +131,32 @@ const CompForm: React.FC<CompFormProps> = ({ setComp, heroes, maps }) => {
                           {map.name}
                         </SelectItem>
                       ))}
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        {/* SIDE SELECT */}
+        <FormField
+          control={form.control}
+          name="side"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-xl">Side (Required)</FormLabel>
+              <FormControl>
+                <Select value={field.value} onValueChange={field.onChange}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Select attack or defense" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Side</SelectLabel>
+                      <SelectItem value="attack">Attack</SelectItem>
+                      <SelectItem value="defense">Defense</SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>
@@ -167,7 +207,7 @@ const CompForm: React.FC<CompFormProps> = ({ setComp, heroes, maps }) => {
               <FormControl>
                 <Select value={field.value} onValueChange={field.onChange}>
                   <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Pick a tank" />
+                    <SelectValue placeholder="Pick a DPS" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
@@ -198,7 +238,7 @@ const CompForm: React.FC<CompFormProps> = ({ setComp, heroes, maps }) => {
               <FormControl>
                 <Select value={field.value} onValueChange={field.onChange}>
                   <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Pick a tank" />
+                    <SelectValue placeholder="Pick a DPS" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
@@ -229,7 +269,7 @@ const CompForm: React.FC<CompFormProps> = ({ setComp, heroes, maps }) => {
               <FormControl>
                 <Select value={field.value} onValueChange={field.onChange}>
                   <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Pick a tank" />
+                    <SelectValue placeholder="Pick a Support" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
@@ -260,7 +300,7 @@ const CompForm: React.FC<CompFormProps> = ({ setComp, heroes, maps }) => {
               <FormControl>
                 <Select value={field.value} onValueChange={field.onChange}>
                   <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Pick a tank" />
+                    <SelectValue placeholder="Pick a Support" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
@@ -286,5 +326,6 @@ const CompForm: React.FC<CompFormProps> = ({ setComp, heroes, maps }) => {
     </Form>
   );
 };
+
 
 export default CompForm;
