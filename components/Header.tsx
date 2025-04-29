@@ -2,7 +2,7 @@
 
 import { routes } from "@/data";
 import { useAuthStore } from "@/stores/useAuthStore";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
 import Image from "next/image";
 import toast from "react-hot-toast";
@@ -12,6 +12,7 @@ const Header: React.FC = () => {
   const { isLoggedIn, logout, setUserName } = useAuthStore();
   const path = usePathname();
   const imgSize = 70;
+  const router = useRouter();
 
   // Filter routes based on authentication state
   const filteredRoutes = routes.filter(route => {
@@ -50,6 +51,7 @@ const Header: React.FC = () => {
     logout();
     setUserName("");
     toast.success("Logged out successfully");
+    router.push("/");
   };
 
   return (
