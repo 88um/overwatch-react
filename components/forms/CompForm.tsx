@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import {
@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/select";
 import { Hero, Map } from "@/types";
 import { createTeam } from "@/actions/create-team";
+import { useRouter } from "next/navigation";
 
 const formSchema = z
   .object({
@@ -79,6 +80,7 @@ interface CompFormProps {
 }
 
 const CompForm: React.FC<CompFormProps> = ({ setComp, heroes, maps }) => {
+  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -97,7 +99,12 @@ const CompForm: React.FC<CompFormProps> = ({ setComp, heroes, maps }) => {
       ...values,
       side: values.side === "attack" ? "Attack" : "Defense",
     });
-    setComp(response);
+    if (response.success) {
+      router.push(`/comp/${response.id}`);
+    }
+    else{
+      setComp(response.message??"Error");
+    }
   }  
 
 
@@ -319,38 +326,6 @@ const CompForm: React.FC<CompFormProps> = ({ setComp, heroes, maps }) => {
     </Form>
   );
 };
-//PLEASE DO JOSH, IDK HOW TO FORMAT OR ADD STUFF PROPERLY, SORRY!
-//This needs to be added to the bottom of page, or before the selection of the heroes,
-//so that the user understands the different comps for each map and what they mean.
-
-//VVVVVVVVVVV BELOW IS THE INFO THAT NEEDS TO BE ADDED VVVVVVVVVVVV
-//Understanding different compositions:
-
-//Forewarning: this is not a perfect counter system, as meta comps change every now and then,
-//and some heroes are better than others, and some heroes are better in different situations.
-//This is just a general guideline to help you understand the different comps and how they work.
-
-//Brawl: A composition that focuses on close-range combat and taking things head on, with heroes
-//such as Reinhardt, Zarya, and Ramattra.
-
-//Dive: A composition that focuses on mobility and flanking and "diving" into the enemy backline,
-//with heroes such as Winston, Genji, and Tracer.
-
-//Poke: A composition that focuses on long-range damage and poking the enemy team from a distance,
-//with heroes such as Ashe, Widowmaker, and Hanzo.
-
-//*insert the image at /public/comp/comp.jpeg*
-//(Rush is brawl, think of it as such while looking at this image!)
-
-//Different comps are good on different maps from either attacking or defending.
-//Brawl is good on maps that are close-quarters, such as King's Row and Numbani.
-//Dive is good on maps that you mainly have to attack a point or take a high ground, 
-//whether it be attack on a push or hybrid, or even from both sides on a control map, such as Ilios or Oasis.
-//Poke is good on maps that are long-range and have sightlines, such as Route 66 and Junkertown. 
-
-//Think of it like this: Poke beats Brawl, Brawl beats Dive, and Dive beats Poke. But only if played in the correct conditions.
-//This is a rock-paper-scissors type of game, and you need to start to understand the different comps
-//and how they work on different maps.
 
 
 export default CompForm;

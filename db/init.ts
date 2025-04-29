@@ -1,14 +1,23 @@
 import { heroes, maps, reviews } from "@/data";
-import { Hero, Map, Review } from "@/types";
+import { Account, Hero, Map, Review, Team } from "@/types";
 import { JSONFilePreset } from "lowdb/node";
 
 type Data = {
     maps : Map[]
     heroes : Hero[]
-    reviews : Review[]
+    reviews : Review[],
+    teams : Team[]
+    accounts:Account[]
   }
+
+
   
-const defaultData : Data = {maps: maps, heroes: heroes, reviews: reviews}
+const defaultData : Data = {maps: maps, 
+    heroes: heroes, 
+    reviews: reviews, 
+    teams:[],
+    accounts: []
+}
 
 export const db = await JSONFilePreset<Data>('db.json', defaultData)
 

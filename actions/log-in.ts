@@ -4,7 +4,7 @@ import { db } from "@/db/init";
 import { createSession } from "@/lib/session";
 
 export const logIn = async (username: string, password: string) => {
-  const acc = await db.data.accounts.find((account) => account.username.toLowerCase() == username.toLowerCase() && account.password == password)
+  const acc = db.data.accounts.find((account) => account.username.toLowerCase() == username.toLowerCase() && account.password == password)
   if (!acc) {
     return { success: false, message: "Your account doesn't exist buddy" }
   }

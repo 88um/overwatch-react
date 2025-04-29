@@ -1,7 +1,7 @@
-
-
-import { Hero, Map } from "@/types";
+'use server';
+import { Hero, Map, Team } from "@/types";
 import { heroes, maps } from "@/data";
+import { db } from "@/db/init";
 
 interface CreateTeamValues {
   tank?: string;
@@ -13,10 +13,15 @@ interface CreateTeamValues {
   side: "Attack" | "Defense";
 }
 
+const generateId = (): string => {
+  return `team-${Date.now()}-${Math.floor(Math.random() * 10000)}`;
+};
+
 export const createTeam = async (values: CreateTeamValues) => {
   const allHeroes: Hero[] = heroes;
   const allMaps: Map[] = maps;
 
+  // Validate input heroes
   const pickedHeroNames = new Set<string>(
     [
       values.tank,
@@ -27,12 +32,25 @@ export const createTeam = async (values: CreateTeamValues) => {
     ]
       .filter((name) => name && name.trim() !== "") as string[]
   );
-  
 
   const selectedHeroes = allHeroes.filter((hero) =>
     pickedHeroNames.has(hero.name)
   );
 
+  // Check if all specified heroes exist
+  for (const heroName of pickedHeroNames) {
+    if (!selectedHeroes.some((hero) => hero.name === heroName)) {
+      return { success: false, message: `Hero "${heroName}" not found.` };
+    }
+  }
+
+  // Validate input map
+  const mapData = allMaps.find((m) => m.name === values.map);
+  if (!mapData) {
+    return { success: false, message: `Map "${values.map}" not found.` };
+  }
+
+  // Calculate comp counts
   const compCounts: Record<string, number> = {};
   selectedHeroes.forEach((hero) => {
     if (hero.comp) {
@@ -42,9 +60,8 @@ export const createTeam = async (values: CreateTeamValues) => {
 
   const comps = Object.entries(compCounts);
   comps.sort((a, b) => b[1] - a[1]);
-  const [topComp, topCount] = comps[0] || [];
+  const [topComp] = comps[0] || [];
 
-  const mapData = allMaps.find((m) => m.name === values.map);
   let mapPreferredComp: string | undefined = undefined;
 
   if (mapData) {
@@ -52,7 +69,9 @@ export const createTeam = async (values: CreateTeamValues) => {
       values.side === "Attack" ? mapData.attackComp : mapData.defenseComp;
   }
 
-  let finalComp = topComp;
+  // Fallback logic for finalComp
+  let finalComp = topComp || mapPreferredComp || "Default Comp";
+
   if (comps.length > 1 && comps[0][1] === comps[1][1]) {
     if (mapPreferredComp) {
       finalComp = mapPreferredComp;
@@ -71,31 +90,22 @@ export const createTeam = async (values: CreateTeamValues) => {
     return hero;
   };
 
-  if (!values.tank) {
-    suggestedHeroes.tank = findHero("Tank");
-  }
-  if (!values.dps) {
-    suggestedHeroes.dps = findHero("DPS");
-  }
-  if (!values.dps2) {
-    suggestedHeroes.dps2 = findHero("DPS");
-  }
-  if (!values.support) {
-    suggestedHeroes.support = findHero("Support");
-  }
-  if (!values.support2) {
-    suggestedHeroes.support2 = findHero("Support");
-  }
+  const team: Team = {
+    id: generateId(), // Use the custom ID generation function
+    originalValues: values,
+    tank: allHeroes.find((h) => h.name === values.tank) || findHero("Tank")!,
+    dps: allHeroes.find((h) => h.name === values.dps) || findHero("DPS")!,
+    dps2: allHeroes.find((h) => h.name === values.dps2) || findHero("DPS")!,
+    support: allHeroes.find((h) => h.name === values.support) || findHero("Support")!,
+    support2: allHeroes.find((h) => h.name === values.support2) || findHero("Support")!,
+    map: mapData!,
+    side: values.side,
+    comp: finalComp,
+  };
 
-  //This needs formatted.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! please
-let result = `Suggested comp: ${finalComp}`;
-result += `<br>Map: ${values.map} (${values.side})`;
-result += `<br>Tank: ${values.tank || suggestedHeroes.tank?.name || "No pick"}`;
-result += `<br>DPS 1: ${values.dps || suggestedHeroes.dps?.name || "No pick"}`;
-result += `<br>DPS 2: ${values.dps2 || suggestedHeroes.dps2?.name || "No pick"}`;
-result += `<br>Support 1: ${values.support || suggestedHeroes.support?.name || "No pick"}`;
-result += `<br>Support 2: ${values.support2 || suggestedHeroes.support2?.name || "No pick"}`;
+  // Save the team to the database
+  await db.data.teams.push(team);
+  await db.write();
 
-return result;
-
+  return { success: true, id: team.id }; // Return the team ID
 };
