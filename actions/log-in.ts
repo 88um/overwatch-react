@@ -2,6 +2,7 @@
 
 import { db } from "@/db/init";
 import { createSession } from "@/lib/session";
+import { isProduction } from "@/lib/utils";
 
 export const logIn = async (username: string, password: string) => {
   const acc = db.data.accounts.find((account) => account.username.toLowerCase() == username.toLowerCase() && account.password == password)
@@ -26,7 +27,9 @@ export const signUp = async (username: string, password: string) => {
     password: password
   }
   await db.data.accounts.push(new_acc);
-  await db.write();
+  if (!isProduction()){
+      await db.write();
+  }
   
   // Create a session for the new user
   await createSession(username);

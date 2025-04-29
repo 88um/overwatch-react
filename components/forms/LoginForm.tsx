@@ -50,10 +50,10 @@ const LoginForm: React.FC<LoginFormProps> = ({login, setUserName}) => {
         }
       }
   return (
-    <>
+    <div className="">
    
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full">
        
         
         <FormField
@@ -85,7 +85,7 @@ const LoginForm: React.FC<LoginFormProps> = ({login, setUserName}) => {
         <Button type="submit">Submit</Button>
       </form>
     </Form>
-    </>
+    </div>
   );
 };
 

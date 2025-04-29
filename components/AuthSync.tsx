@@ -2,9 +2,11 @@
 
 import { useEffect } from 'react';
 import { useAuthStore } from '@/stores/useAuthStore';
+import { useRouter } from 'next/navigation';
 
 export default function AuthSync() {
   const { login, logout } = useAuthStore();
+  const router = useRouter();
 
   useEffect(() => {
     const checkSession = async () => {
@@ -17,10 +19,12 @@ export default function AuthSync() {
         } else {
           // If no valid session exists, clear the persisted auth state
           logout();
+          router.push('/')
         }
       } catch (error) {
         // If there's an error checking the session, assume not authenticated
         logout();
+        router.push('/')
       }
     };
 
