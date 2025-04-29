@@ -19,12 +19,12 @@ export default function AuthSync() {
         } else {
           // If no valid session exists, clear the persisted auth state
           logout();
-          router.push('/')
+          //router.push('/')
         }
       } catch (error) {
         // If there's an error checking the session, assume not authenticated
         logout();
-        router.push('/')
+        //router.push('/')
       }
     };
 
