@@ -34,9 +34,9 @@ const HeroCard: React.FC<HeroCardProps> = ({ hero }) => {
             <h3 className="text-2xl font-bold">{hero.name}</h3>
             <p className="text-sm md:text-base">
               {`${hero.name} is a ${hero.role} hero from ${hero.nationality}. 
-
-              Comp: ${hero.comp}. Abilities: ${hero.abilities}.
-              Weapon: ${hero.weapon}.
+              \n
+              Comp: ${hero.comp}. \nAbilities: ${hero.abilities}.\n
+              Weapon: ${hero.weapon}.\n
               Ultimate: ${hero.ult}`}
             </p>
 

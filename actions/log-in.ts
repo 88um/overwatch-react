@@ -5,7 +5,7 @@ import { createSession } from "@/lib/session";
 import { isProduction } from "@/lib/utils";
 
 export const logIn = async (username: string, password: string) => {
-  const acc = db.data.accounts.find((account) => account.username.toLowerCase() == username.toLowerCase() && account.password == password)
+  const acc = await db.data.accounts.find((account) => account.username.toLowerCase() == username.toLowerCase() && account.password == password)
   if (!acc) {
     return { success: false, message: "Your account doesn't exist buddy" }
   }
@@ -27,9 +27,8 @@ export const signUp = async (username: string, password: string) => {
     password: password
   }
   await db.data.accounts.push(new_acc);
-  if (!isProduction()){
-      await db.write();
-  }
+  await db.write();
+  
   
   // Create a session for the new user
   await createSession(username);

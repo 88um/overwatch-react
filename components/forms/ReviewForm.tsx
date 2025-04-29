@@ -19,6 +19,7 @@ import { useAuthStore } from "@/stores/useAuthStore";
 import toast from "react-hot-toast";
 import { addReview } from "@/actions/reviews";
 import {useRouter} from 'next/navigation'
+import { SelectGroup, SelectLabel } from "@radix-ui/react-select";
 
 // Schema
 const reviewSchema = z.object({
@@ -86,18 +87,21 @@ const ReviewForm: React.FC = () => {
               render={({ field }) => (
                 <FormItem className="text-black">
                   <FormLabel className="text-black">Mission Rating</FormLabel>
-                  <Select {...field}>
+                  <Select {...field} onValueChange={field.onChange}>
                     <FormControl>
                       <SelectTrigger className="bg-dark ">
-                        <SelectValue />
+                        <SelectValue placeholder="Rating"/>
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="5">★★★★★</SelectItem>
-                      <SelectItem value="4">★★★★☆</SelectItem>
-                      <SelectItem value="3">★★★☆☆</SelectItem>
-                      <SelectItem value="2">★★☆☆☆</SelectItem>
-                      <SelectItem value="1">★☆☆☆☆</SelectItem>
+                      <SelectGroup>
+                        <SelectLabel>Rating</SelectLabel>
+                        <SelectItem value="5">★★★★★</SelectItem>
+                        <SelectItem value="4">★★★★☆</SelectItem>
+                        <SelectItem value="3">★★★☆☆</SelectItem>
+                        <SelectItem value="2">★★☆☆☆</SelectItem>
+                        <SelectItem value="1">★☆☆☆☆</SelectItem>
+                      </SelectGroup>
                     </SelectContent>
                   </Select>
                   <FormMessage />
