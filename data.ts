@@ -8,6 +8,7 @@ export const maps : Map[] = [
       name : "Antarctic Peninsula",
       type : "Control",
       image : "/maps/antarctic.webp",
+      top: "/mapbutton/antarctic.jpg",
       location: "Antarctica",
       attackComp: "Brawl",
       defenseComp: "Brawl",
@@ -16,6 +17,8 @@ export const maps : Map[] = [
       name : "Busan",
       type : "Control",
       image : "/maps/busan.webp",
+      top: "/mapbutton/busan.jpg",
+
       location: "Korea",
       attackComp: "Brawl",
       defenseComp: "Brawl",
@@ -24,6 +27,8 @@ export const maps : Map[] = [
       name : "Ilios",
       type : "Control",
       image : "/maps/ilios.webp",
+      top: "/mapbutton/ilios.jpg",
+
       location: "Greece",
       attackComp: "Brawl",
       defenseComp: "Brawl",
@@ -32,6 +37,7 @@ export const maps : Map[] = [
       name : "Lijang Tower",
       type : "Control",
       image : "/maps/lijang.webp",
+      top: "/mapbutton/lijang.jpg",
       location: "China",
       attackComp: "Brawl",
       defenseComp: "Brawl",
@@ -40,6 +46,7 @@ export const maps : Map[] = [
       name : "Nepal",
       type : "Control",
       image : "/maps/nepal.webp",
+      top: "/mapbutton/nepal.jpg",
       location: "Nepal",
       attackComp: "Brawl",
       defenseComp: "Brawl",
@@ -48,6 +55,7 @@ export const maps : Map[] = [
     name : "Oasis",
     type : "Control",
     image : "/maps/oasis.webp",
+    top: "/mapbutton/oasis.jpg",
     location: "Iraq",
     attackComp: "Brawl",
     defenseComp: "Brawl",
@@ -56,6 +64,7 @@ export const maps : Map[] = [
     name : "Samoa",
     type : "Control",
     image : "/maps/samoa.webp",
+    top: "/mapbutton/samoa.webp",
     location: "Samoa",
     attackComp: "Brawl",
     defenseComp: "Brawl",
@@ -65,6 +74,7 @@ export const maps : Map[] = [
   name: "Circuit Royal",
   type: "Escort",
   image: "/maps/circuit.webp",
+  top: "/mapbutton/circuit.png",
   location: "Monaco",
   attackComp: "Poke",
   defenseComp: "Poke",
@@ -73,6 +83,7 @@ export const maps : Map[] = [
   name: "Dorado",
   type: "Escort",
   image: "/maps/dorado.jpg",
+  top: "/mapbutton/dorado.jpg",
   location: "Mexico",
   attackComp: "Dive",
   defenseComp: "Poke",
@@ -81,6 +92,7 @@ export const maps : Map[] = [
   name: "Havana",
   type: "Escort",
   image: "/maps/havana.webp",
+  top: "/mapbutton/habana.jpg",
   location: "Cuba",
   attackComp: "Poke",
   defenseComp: "Poke",
@@ -89,6 +101,7 @@ export const maps : Map[] = [
   name: "Junkertown",
   type: "Escort",
   image: "/maps/junkertown.webp",
+  top: "/mapbutton/junkertown.jpg",
   location: "Australia",
   attackComp: "Poke or Dive",
   defenseComp: "Poke",
@@ -97,6 +110,7 @@ export const maps : Map[] = [
   name: "Rialto",
   type: "Escort",
   image: "/maps/rialto.webp",
+  top: "/mapbutton/rialto.jpg",
   location: "Italy",
   attackComp: "Poke or Dive",
   defenseComp: "Poke",
@@ -105,6 +119,7 @@ export const maps : Map[] = [
   name: "Route 66",
   type: "Escort",
   image: "/maps/route.webp",
+  top: "/mapbutton/route.jpg",
   location: "USA",
   attackComp: "Poke or Dive",
   defenseComp: "Poke",
@@ -113,6 +128,7 @@ export const maps : Map[] = [
   name: "Shambali Monastery",
   type: "Escort",
   image: "/maps/shambali.webp",
+  top: "/mapbutton/shambali.jpg",
   location: "Nepal",
   attackComp: "Poke or Dive",
   defenseComp: "Poke",
@@ -121,6 +137,7 @@ export const maps : Map[] = [
   name: "Watchpoint: Gibraltar",
   type: "Escort",
   image: "/maps/gibby.webp",
+  top: "/mapbutton/gibby.jpg",
   location: "Gibraltar",
   attackComp: "Poke or Dive",
   defenseComp: "Poke",
@@ -131,6 +148,7 @@ export const maps : Map[] = [
   name: "Blizzard World",
   type: "Hybrid",
   image: "/maps/blizzardworld.webp",
+  top: "/mapbutton/blizzardworld.jpg",
   location: "USA",
   attackComp: "Any",
   defenseComp: "Poke",
@@ -139,6 +157,7 @@ export const maps : Map[] = [
   name: "Eichenwalde",
   type: "Hybrid",
   image: "/maps/eichenwalde.webp",
+  top: "/mapbutton/eichenwalde.jpg",
   location: "Germany",
   attackComp: "Brawl",
   defenseComp: "Brawl",
@@ -147,6 +166,7 @@ export const maps : Map[] = [
   name: "Hollywood",
   type: "Hybrid",
   image: "/maps/hollywood.webp",
+  top: "/mapbutton/hollywood.jpg",
   location: "USA",
   attackComp: "Brawl or Dive",
   defenseComp: "Brawl",
@@ -155,6 +175,7 @@ export const maps : Map[] = [
   name: "King's Row",
   type: "Hybrid",
   image: "/maps/kingsrow.webp",
+  top: "/mapbutton/kingsrow.jpg",
   location: "England",
   attackComp: "Brawl",
   defenseComp: "Brawl",
@@ -163,6 +184,7 @@ export const maps : Map[] = [
   name: "Midtown",
   type: "Hybrid",
   image: "/maps/midtown.webp",
+  top: "/mapbutton/midtown.png",
   location: "USA",
   attackComp: "Brawl or Poke",
   defenseComp: "Brawl or Poke",
@@ -171,6 +193,7 @@ export const maps : Map[] = [
   name: "Numbani",
   type: "Hybrid",
   image: "/maps/numbani.webp",
+  top: "/mapbutton/numbani.jpg",
   location: "Nigeria",
   attackComp: "Any",
   defenseComp: "Poke",
@@ -179,6 +202,7 @@ export const maps : Map[] = [
   name: "Paraíso",
   type: "Hybrid",
   image: "/maps/paraiso.webp",
+  top: "/mapbutton/paraiso.png",
   location: "Brazil",
   attackComp: "Any",
   defenseComp: "Poke",
@@ -189,6 +213,7 @@ export const maps : Map[] = [
   name: "Colosseo",
   type: "Push",
   image: "/maps/colosseo.webp",
+  top: "/mapbutton/colosseo.webp",
   location: "Italy",
   attackComp: "Dive or Brawl",
   defenseComp: "Dive or Brawl",
@@ -197,6 +222,7 @@ export const maps : Map[] = [
   name: "Esperança",
   type: "Push",
   image: "/maps/esperanca.webp",
+  top: "/mapbutton/esperanca.webp",
   location: "Portugal",
   attackComp: "Dive or Brawl",
   defenseComp: "Dive or Brawl",
@@ -205,6 +231,7 @@ export const maps : Map[] = [
   name: "New Queen Street",
   type: "Push",
   image: "/maps/newqueenstreet.webp",
+  top: "/mapbutton/newqueenstreet.webp",
   location: "Canada",
   attackComp: "Brawl",
   defenseComp: "Brawl",
@@ -215,6 +242,7 @@ export const maps : Map[] = [
   name: "New Junk City",
   type: "Flashpoint",
   image: "/maps/newjunkcity.webp",
+  top: "/mapbutton/newjunkcity.jpg",
   location: "Australia",
   attackComp: "Brawl",
   defenseComp: "Brawl",
@@ -223,6 +251,7 @@ export const maps : Map[] = [
   name: "Suravasa",
   type: "Flashpoint",
   image: "/maps/suravasa.webp",
+  top: "/mapbutton/suravasa.webp",
   location: "India",
   attackComp: "Brawl",
   defenseComp: "Brawl",
@@ -279,7 +308,8 @@ export const heroes : Hero[] = [
     abilities : "Rocket Punch, Seismic Slam, Power Block",
     image:"/tanks/doomfist/doomfist.webp",
     ult: "Meteor Strike",
-    comp: "Dive"
+    comp: "Dive",
+    info: "/herobutton/doom.webp"
 },
 {
     name: "Mauga",
@@ -289,7 +319,9 @@ export const heroes : Hero[] = [
     abilities : "Overrun, Cardiac Overdrive, Berserker",
     image:"/tanks/mauga/mauga.webp",
     ult: "Cage Fight",
-    comp: "Brawl"
+    comp: "Brawl",
+    info: "/herobutton/mauga.jpg"
+
 },
 {
     name: "Hazard",
@@ -299,7 +331,9 @@ export const heroes : Hero[] = [
     abilities : "Spike Guard, Violent Leap, Jagged Wall",
     image:"/tanks/hazard/hazard.webp",
     ult: "Downpour",
-    comp: "Brawl or Dive"
+    comp: "Brawl",
+    info: "/herobutton/hazard.webp"
+
 
 }
 ,{
@@ -310,7 +344,9 @@ export const heroes : Hero[] = [
     abilities : "Jagged Blade, Carnage, Commanding Shout",
     image:"/tanks/junkerqueen/junkerqueen.webp",
     ult: "Rampage",
-    comp: "Brawl"
+    comp: "Brawl",
+    info: "/herobutton/junkerqueen.webp"
+
 },
 {
     name: "DVA",
@@ -320,7 +356,9 @@ export const heroes : Hero[] = [
     abilities : "Defense Matrix, Boosters, Micro Missiles",
     image:"/tanks/dva/dva.webp",
     ult: "Self-Destruct",
-    comp: "Dive"
+    comp: "Dive",
+    info: "/herobutton/dva.webp"
+
 
 },
 {
@@ -331,7 +369,9 @@ export const heroes : Hero[] = [
     abilities : "Fortify, Energy Javelin, Javelin Spin",
     image:"/tanks/orisa/orisa.webp",
     ult: "Terra Surge",
-    comp: "Brawl"
+    comp: "Brawl",
+    info: "/herobutton/orisa.webp"
+
 },
 {
     name: "Reinhardt",
@@ -341,7 +381,9 @@ export const heroes : Hero[] = [
     abilities: "Barrier Field, Charge, Fire Strike",
     image: "/tanks/reinhardt/reinhardt.webp",
     ult: "Earthshatter",
-    comp: "Brawl"
+    comp: "Brawl",
+    info: "/herobutton/reinhardt.webp"
+
   },
   {
     name: "Roadhog",
@@ -351,7 +393,9 @@ export const heroes : Hero[] = [
     abilities: "Chain Hook, Take a Breather, Pig Pen",
     image: "/tanks/roadhog/roadhog.webp",
     ult: "Whole Hog",
-    comp: "Brawl"
+    comp: "Brawl",
+    info: "/herobutton/roadhog.webp"
+
   },
   {
     name: "Sigma",
@@ -361,7 +405,9 @@ export const heroes : Hero[] = [
     abilities: "Kinetic Grasp, Accretion, Experimental Barrier",
     image: "/tanks/sigma/sigma.webp",
     ult: "Gravitic Flux",
-    comp: "Poke"
+    comp: "Poke",
+    info: "/herobutton/sigma.webp"
+
   },
   {
     name: "Winston",
@@ -371,7 +417,9 @@ export const heroes : Hero[] = [
     abilities: "Jump Pack, Barrier Projector",
     image: "/tanks/winston/winston.webp",
     ult: "Primal Rage",
-    comp: "Dive"
+    comp: "Dive",
+    info: "/herobutton/winston.webp"
+
   },
   {
     name: "Wrecking Ball",
@@ -381,7 +429,9 @@ export const heroes : Hero[] = [
     abilities: "Grappling Claw, Adaptive Shield, Piledriver",
     image: "/tanks/wreckingball/wreckingball.webp",
     ult: "Minefield",
-    comp: "Dive"
+    comp: "Dive",
+    info: "/herobutton/wreckingball.webp"
+
   },
   {
     name: "Zarya",
@@ -391,7 +441,9 @@ export const heroes : Hero[] = [
     abilities: "Particle Barrier, Projected Barrier",
     image: "/tanks/zarya/zarya.webp",
     ult: "Graviton Surge",
-    comp: "Brawl"
+    comp: "Brawl",
+    info: "/herobutton/zarya.webp"
+
   },
   {
     name: "Ramattra",
@@ -401,7 +453,9 @@ export const heroes : Hero[] = [
     abilities: "Void Barrier, Nemesis Form, Ravenous Vortex",
     image: "/tanks/ramattra/ramattra.webp",
     ult: "Annihilation",
-    comp: "Brawl"
+    comp: "Brawl",
+    info: "/herobutton/ramattra.webp"
+
   },
   //DPS
   {
@@ -412,7 +466,9 @@ export const heroes : Hero[] = [
     abilities: "Dynamite, Coach Gun",
     image: "/dps/ashe/ashe.webp",
     ult: "B.O.B.",
-    comp: "Poke"
+    comp: "Poke",
+    info: "/herobutton/ashe.webp"
+
   },
   {
     name: "Bastion",
@@ -422,7 +478,9 @@ export const heroes : Hero[] = [
     abilities: "A-36 Tactical Grenade, Reconfigure",
     image: "/dps/bastion/bastion.webp",
     ult: "Artillery Configuration",
-    comp: "Poke"
+    comp: "Poke",
+    info: "/herobutton/bastion.webp"
+
   },
   {
     name: "Cassidy",
@@ -432,7 +490,9 @@ export const heroes : Hero[] = [
     abilities: "Combat Roll, Magnetic Grenade",
     image: "/dps/cassidy/cassidy.webp",
     ult: "Deadeye",
-    comp: "Poke"
+    comp: "Poke",
+    info: "/herobutton/cassidy.webp"
+
   },
   {
     name: "Echo",
@@ -442,7 +502,21 @@ export const heroes : Hero[] = [
     abilities: "Sticky Bombs, Flight, Focusing Beam",
     image: "/dps/echo/echo.webp",
     ult: "Duplicate",
-    comp: "Dive"
+    comp: "Dive",
+    info: "/herobutton/echo.webp"
+
+  },
+  {
+    name: "Freja",
+    role: "DPS",
+    nationality: "Denmark",
+    weapon: "Revdraw Crossbow",
+    abilities: "Take Aim, Quick Dash, Updraft",
+    image: "/dps/freja/freja.webp",
+    ult: "Bola Shot",
+    comp: "Poke",
+    info: "/herobutton/freja.jpg"
+
   },
   {
     name: "Genji",
@@ -452,7 +526,9 @@ export const heroes : Hero[] = [
     abilities: "Deflect, Swift Strike",
     image: "/dps/genji/genji.webp",
     ult: "Dragonblade",
-    comp: "Dive"
+    comp: "Dive",
+    info: "/herobutton/genji.webp"
+
   },
   {
     name: "Hanzo",
@@ -462,7 +538,9 @@ export const heroes : Hero[] = [
     abilities: "Sonic Arrow, Storm Arrows, Lunge",
     image: "/dps/hanzo/hanzo.webp",
     ult: "Dragonstrike",
-    comp: "Poke"
+    comp: "Poke",
+    info: "/herobutton/hanzo.webp"
+
   },
   {
     name: "Junkrat",
@@ -472,7 +550,9 @@ export const heroes : Hero[] = [
     abilities: "Concussion Mine, Steel Trap",
     image: "/dps/junkrat/junkrat.webp",
     ult: "RIP-Tire",
-    comp: "Poke"
+    comp: "Poke",
+    info: "/herobutton/junkrat.webp"
+
   },
   {
     name: "Mei",
@@ -482,7 +562,9 @@ export const heroes : Hero[] = [
     abilities: "Cryo-Freeze, Ice Wall",
     image: "/dps/mei/mei.webp",
     ult: "Blizzard",
-    comp: "Brawl"
+    comp: "Brawl",
+    info: "/herobutton/mei.webp"
+
   },
   {
     name: "Pharah",
@@ -492,7 +574,9 @@ export const heroes : Hero[] = [
     abilities: "Jump Jet, Concussive Blast",
     image: "/dps/pharah/pharah.webp",
     ult: "Barrage",
-    comp: "Dive"
+    comp: "Dive",
+    info: "/herobutton/pharah.webp"
+
   },
   {
     name: "Reaper",
@@ -502,7 +586,9 @@ export const heroes : Hero[] = [
     abilities: "Wraith Form, Shadow Step",
     image: "/dps/reaper/reaper.webp",
     ult: "Death Blossom",
-    comp: "Brawl"
+    comp: "Brawl",
+    info: "/herobutton/reaper.webp"
+
   },
   {
     name: "Sojourn",
@@ -512,7 +598,9 @@ export const heroes : Hero[] = [
     abilities: "Disruptor Shot, Power Slide",
     image: "/dps/sojourn/sojourn.webp",
     ult: "Overclock",
-    comp: "Poke"
+    comp: "Poke",
+    info: "/herobutton/sojourn.webp"
+
   },
   {
     name: "Soldier: 76",
@@ -522,7 +610,9 @@ export const heroes : Hero[] = [
     abilities: "Sprint, Biotic Field, Helix Rockets",
     image: "/dps/soldier76/soldier76.webp",
     ult: "Tactical Visor",
-    comp: "Poke"
+    comp: "Poke",
+    info: "/herobutton/soldier76.webp"
+
   },
   {
     name: "Sombra",
@@ -532,7 +622,9 @@ export const heroes : Hero[] = [
     abilities: "Hack, Virus, Translocator",
     image: "/dps/sombra/sombra.webp",
     ult: "EMP",
-    comp: "Dive"
+    comp: "Dive",
+    info: "/herobutton/sombra.webp"
+
   },
   {
     name: "Symmetra",
@@ -542,7 +634,8 @@ export const heroes : Hero[] = [
     abilities: "Sentry Turrets, Teleporter",
     image: "/dps/symmetra/symmetra.webp",
     ult: "Photon Barrier",
-    comp: "Brawl"
+    comp: "Brawl",
+    info: "/herobutton/symmetra.webp"
   },
   {
     name: "Torbjörn",
@@ -552,7 +645,8 @@ export const heroes : Hero[] = [
     abilities: "Deploy Turret, Overload",
     image: "/dps/torbjorn/torbjorn.webp",
     ult: "Molten Core",
-    comp: "Poke"
+    comp: "Poke",
+    info: "/herobutton/torbjorn.webp"
   },
   {
     name: "Tracer",
@@ -562,7 +656,8 @@ export const heroes : Hero[] = [
     abilities: "Blink, Recall",
     image: "/dps/tracer/tracer.webp",
     ult: "Pulse Bomb",
-    comp: "Dive"
+    comp: "Dive",
+    info: "/herobutton/tracer.webp"
   },
   {
     name: "Venture",
@@ -572,7 +667,8 @@ export const heroes : Hero[] = [
     abilities: "Burrow, Drill Dash",
     image: "/dps/venture/venture.webp",
     ult: "Tectonic Shock",
-    comp: "Dive"
+    comp: "Dive",
+    info: "/herobutton/venture.png"
   },
   {
     name: "Widowmaker",
@@ -582,7 +678,8 @@ export const heroes : Hero[] = [
     abilities: "Grappling Hook, Venom Mine",
     image: "/dps/widowmaker/widowmaker.webp",
     ult: "Infra-Sight",
-    comp: "Poke"
+    comp: "Poke",
+    info: "/herobutton/widow.webp"
   },
   //Support
   {
@@ -593,7 +690,8 @@ export const heroes : Hero[] = [
     abilities: "Sleep Dart, Biotic Grenade",
     image: "/support/ana/ana.webp",
     ult: "Nano Boost",
-    comp: "Poke"
+    comp: "Dive",
+    info: "/herobutton/ana.webp"
   },
   {
     name: "Baptiste",
@@ -603,7 +701,8 @@ export const heroes : Hero[] = [
     abilities: "Regenerative Burst, Immortality Field",
     image: "/support/baptiste/baptiste.webp",
     ult: "Amplification Matrix",
-    comp: "Poke"
+    comp: "Poke",
+    info: "/herobutton/baptiste.webp"
   },
   {
     name: "Brigitte",
@@ -613,7 +712,8 @@ export const heroes : Hero[] = [
     abilities: "Repair Pack, Whip Shot, Barrier Shield",
     image: "/support/brigitte/brigitte.webp",
     ult: "Rally",
-    comp: "Brawl"
+    comp: "Dive",
+    info: "/herobutton/brigette.webp"
   },
   {
     name: "Illari",
@@ -623,7 +723,8 @@ export const heroes : Hero[] = [
     abilities: "Healing Pylon, Outburst",
     image: "/support/illari/illari.webp",
     ult: "Captive Sun",
-    comp: "Poke"
+    comp: "Poke",
+    info: "/herobutton/illari.webp"
   },
   {
     name: "Kiriko",
@@ -633,7 +734,8 @@ export const heroes : Hero[] = [
     abilities: "Swift Step, Protection Suzu",
     image: "/support/kiriko/kiriko.webp",
     ult: "Kitsune Rush",
-    comp: "Dive"
+    comp: "Dive",
+    info: "/herobutton/kiriko.webp"
   },
   {
     name: "Lifeweaver",
@@ -643,7 +745,8 @@ export const heroes : Hero[] = [
     abilities: "Life Grip, Petal Platform, Rejuvenating Dash",
     image: "/support/lifeweaver/lifeweaver.webp",
     ult: "Tree of Life",
-    comp: "Poke"
+    comp: "Poke",
+    info: "/herobutton/lifeweaver.webp"
   },
   {
     name: "Lúcio",
@@ -653,7 +756,8 @@ export const heroes : Hero[] = [
     abilities: "Crossfade, Amp It Up, Soundwave",
     image: "/support/lucio/lucio.webp",
     ult: "Sound Barrier",
-    comp: "Dive or Brawl"
+    comp: "Brawl",
+    info: "/herobutton/lucio.webp"
   },
   {
     name: "Mercy",
@@ -663,7 +767,8 @@ export const heroes : Hero[] = [
     abilities: "Guardian Angel, Resurrect",
     image: "/support/mercy/mercy.webp",
     ult: "Valkyrie",
-    comp: "Poke"
+    comp: "Poke",
+    info: "/herobutton/mercy.webp"
   },
   {
     name: "Moira",
@@ -673,7 +778,8 @@ export const heroes : Hero[] = [
     abilities: "Biotic Orb, Fade",
     image: "/support/moira/moira.webp",
     ult: "Coalescence",
-    comp: "Brawl"
+    comp: "Brawl",
+    info: "/herobutton/moira.webp"
   },
   {
     name: "Zenyatta",
@@ -683,6 +789,18 @@ export const heroes : Hero[] = [
     abilities: "Orb of Harmony, Orb of Discord",
     image: "/support/zenyatta/zenyatta.webp",
     ult: "Transcendence",
-    comp: "Poke"
+    comp: "Poke",
+    info: "/herobutton/zenyatta.webp"
+  },
+  {
+    name: "Juno",
+    role: "Support",
+    nationality: "Mars",
+    weapon: "Mediblaster",
+    abilities: "Pulsar Torpedoes, Glide Boost, Hyper Ring",
+    image: "/support/juno/juno.webp",
+    ult: "Orbital Ray",
+    comp: "Brawl",
+    info: "/herobutton/juno.jpeg"
   }
 ]

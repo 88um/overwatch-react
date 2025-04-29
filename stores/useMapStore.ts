@@ -1,23 +1,20 @@
 
-import { Map } from '@/types';
-import { create } from 'zustand';
-
+import { create } from "zustand";
+import { Map } from "@/types";
 
 interface MapState {
   isActive: boolean;
-  map : Map | undefined;
+  map: Map | null;
   show: () => void;
   close: () => void;
-  setMap: (map : Map) => void;
+  setMap: (map: Map) => void;
 }
 
-export const useMapStore = create<MapState>()(
-    (set) => ({
-        isActive: false,
-        map: undefined,
-        show: () => set({ isActive: true }),
-        close: () => set({ isActive: false }),
-        setMap: (map : Map) => set({ map })
-    })
+export const useMapStore = create<MapState>((set: (partial: Partial<MapState>) => void) => ({
+  isActive: false,
+  map: null,
+  show: () => set({ isActive: true }),
+  close: () => set({ isActive: false }),
+  setMap: (map) => set({ map }),
   
-);
+}));

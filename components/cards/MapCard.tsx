@@ -3,12 +3,14 @@
 import { Map } from "@/types";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import { useMapStore } from "@/stores/useMapStore";
 
 interface MapCardProps {
 map : Map
 }
 
 const MapCard: React.FC<MapCardProps> = ({map}) => {
+  const { show , setMap } = useMapStore();
   return (
 <div className="m-4">
       <div className="bg-[#ff9c00] rounded-xl overflow-hidden border-2 border-blue-500/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
@@ -44,6 +46,10 @@ const MapCard: React.FC<MapCardProps> = ({map}) => {
             <Button 
               className="w-full bg-[#00aeef] hover:bg-[#0088cc] text-white mt-4"
               variant="default"
+              onClick={() => {
+                setMap(map);
+                show();
+              }}
             >
               View Map
             </Button>

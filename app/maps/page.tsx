@@ -3,6 +3,7 @@ import { getAllMaps } from "@/actions/get-maps";
 import MapCard from "@/components/cards/MapCard";
 import Grid from "@/components/Grid";
 import SearchBar from "@/components/SearchBar";
+import MapModal from "@/components/modal/MapModal";
 
 
 interface MapsPageProps {
@@ -30,6 +31,7 @@ const MapsPage: React.FC<MapsPageProps> = async ({ searchParams }) => {
           </Grid>
         )}
       </div>
+      <MapModal/>
     </div>
   );
 };

@@ -37,10 +37,12 @@ const HeroModal: React.FC<HeroModalProps> = () => {
                 src={hero.image}
                 alt={hero.name}
                 className="w-full h-full object-contain"
+
               />
             </div>
           </div>
 
+            {/* Hero Description */}
           {/* Hero Details */}
           <div className="flex-1 grid grid-cols-1 gap-4">
             <div>
@@ -63,7 +65,13 @@ const HeroModal: React.FC<HeroModalProps> = () => {
             </div>
           </div>
         </div>
-
+        <div className="flex justify-center mt-6">
+          <img
+            src={hero.info}
+            alt={`${hero.name} Information`}
+            className="w-full max-w-lg rounded-lg shadow-md"
+          />
+        </div>
         <DialogFooter className="pt-0">
           <Button variant="outline" onClick={close}>
             Close
