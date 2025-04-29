@@ -104,7 +104,7 @@ export const createTeam = async (values: CreateTeamValues) => {
   };
 
   // Save the team to the database
-  await db.data.teams.push(team);
+  db.data.teams.push(team);
   await db.write();
 
   return { success: true, id: team.id }; // Return the team ID
