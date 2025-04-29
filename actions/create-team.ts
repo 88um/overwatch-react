@@ -2,6 +2,7 @@
 import { Hero, Map, Team } from "@/types";
 import { heroes, maps } from "@/data";
 import { db } from "@/db/init";
+import { isProduction } from "@/lib/utils";
 
 interface CreateTeamValues {
   tank?: string;
@@ -105,7 +106,10 @@ export const createTeam = async (values: CreateTeamValues) => {
 
   // Save the team to the database
   db.data.teams.push(team);
-  await db.write();
+  if (!isProduction()){
+    await db.write();
+  }
+ 
 
   return { success: true, id: team.id }; // Return the team ID
 };
