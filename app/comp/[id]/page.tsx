@@ -42,6 +42,9 @@ const CompPage: React.FC<CompPageProps> = async ({ params }) => {
         <TeamModal/>
       </div>
       <div>
+        <h2 className="text-2xl font-bold mb-4">Your Comp - {tank.comp}</h2>
+      </div>
+      <div>
       <h2 className="text-2xl font-bold mb-4">For Map</h2>
       <MapCard map={map} />
       </div>
