@@ -3,12 +3,15 @@
 import { Hero } from "@/types";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import { useHeroStore } from "@/stores/useHeroStore";
 
 interface HeroCardProps {
   hero: Hero;
 }
 
 const HeroCard: React.FC<HeroCardProps> = ({ hero }) => {
+  const { open, setHero } = useHeroStore();
+
   return (
     <div className="m-4">
       <div className="bg-[#ff9c00] rounded-xl overflow-hidden border-2 border-blue-500/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
@@ -20,11 +23,7 @@ const HeroCard: React.FC<HeroCardProps> = ({ hero }) => {
                 src={hero.image}
                 alt={hero.name}
                 fill
-
-                className="object-contain" 
-
-         
-
+                className="object-contain"
                 priority
               />
             </div>
@@ -39,12 +38,15 @@ const HeroCard: React.FC<HeroCardProps> = ({ hero }) => {
               Comp: ${hero.comp}. Abilities: ${hero.abilities}.
               Weapon: ${hero.weapon}.
               Ultimate: ${hero.ult}`}
-
             </p>
-            
-            <Button 
-              className="w-full bg-[#00aeef] hover:bg-[#0088cc] text-white mt-4"
+
+            <Button
+              className="w-full bg-[#00aeef] hover:bg-[#0088cc] text-white mt-4 cursor-pointer"
               variant="default"
+              onClick={() => {
+                setHero(hero);
+                open();
+              }}
             >
               View Hero
             </Button>
