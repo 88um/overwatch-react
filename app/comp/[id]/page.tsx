@@ -41,6 +41,10 @@ const CompPage: React.FC<CompPageProps> = async ({ params }) => {
         <p><strong>Side:</strong> {originalValues.side}</p>
         <TeamModal/>
       </div>
+      <div>
+      <h2 className="text-2xl font-bold mb-4">For Map</h2>
+      <MapCard map={map} />
+      </div>
 
       {/* Resulting Team */}
       <div>
@@ -54,7 +58,7 @@ const CompPage: React.FC<CompPageProps> = async ({ params }) => {
           <HeroCard hero={support2} />
 
           {/* Map Card */}
-          <MapCard map={map} />
+          
         </Grid>
       </div>
     </div>
