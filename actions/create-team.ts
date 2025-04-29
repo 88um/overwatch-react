@@ -1,4 +1,4 @@
-"use client";
+
 
 import { Hero, Map } from "@/types";
 import { heroes, maps } from "@/data";
