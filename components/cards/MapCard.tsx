@@ -17,7 +17,7 @@ const MapCard: React.FC<MapCardProps> = ({map}) => {
         <div className="flex flex-col md:flex-row w-full p-5 gap-6 items-center">
           {/* Map Image */}
           <div className="w-full md:w-2/5">
-            <div className="relative w-full h-48 md:h-56 rounded-lg overflow-hidden border-2 border-blue-500/20">
+            <div className="relative w-full h-20 rounded-lg overflow-hidden border-2 border-blue-500/20">
               <Image
                 src={map.image}
                 alt={map.name}
