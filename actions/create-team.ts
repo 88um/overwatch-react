@@ -22,7 +22,6 @@ export const createTeam = async (values: CreateTeamValues) => {
   const allHeroes: Hero[] = heroes;
   const allMaps: Map[] = maps;
 
-  // Validate input heroes
   const pickedHeroNames = new Set<string>(
     [
       values.tank,
@@ -38,20 +37,17 @@ export const createTeam = async (values: CreateTeamValues) => {
     pickedHeroNames.has(hero.name)
   );
 
-  // Check if all specified heroes exist
   for (const heroName of pickedHeroNames) {
     if (!selectedHeroes.some((hero) => hero.name === heroName)) {
       return { success: false, message: `Hero "${heroName}" not found.` };
     }
   }
 
-  // Validate input map
   const mapData = allMaps.find((m) => m.name === values.map);
   if (!mapData) {
     return { success: false, message: `Map "${values.map}" not found.` };
   }
 
-  // Calculate comp counts
   const compCounts: Record<string, number> = {};
   selectedHeroes.forEach((hero) => {
     if (hero.comp) {
@@ -70,7 +66,6 @@ export const createTeam = async (values: CreateTeamValues) => {
       values.side === "Attack" ? mapData.attackComp : mapData.defenseComp;
   }
 
-  // Fallback logic for finalComp
   let finalComp = topComp || mapPreferredComp || "Default Comp";
 
   if (comps.length > 1 && comps[0][1] === comps[1][1]) {
@@ -92,7 +87,7 @@ export const createTeam = async (values: CreateTeamValues) => {
   };
 
   const team: Team = {
-    id: generateId(), // Use the custom ID generation function
+    id: generateId(),
     originalValues: values,
     tank: allHeroes.find((h) => h.name === values.tank) || findHero("Tank")!,
     dps: allHeroes.find((h) => h.name === values.dps) || findHero("DPS")!,
@@ -103,12 +98,17 @@ export const createTeam = async (values: CreateTeamValues) => {
     side: values.side,
     comp: finalComp,
   };
-
-  // Save the team to the database
+  
   await db.data.teams.push(team);
+
+  if (!db.data.teams) {
+    db.data.teams = [];
+  }
+
+  db.data.teams.push(team);
   await db.write();
   
  
 
-  return { success: true, id: team.id }; // Return the team ID
+  return { success: true, id: team.id }; 
 };

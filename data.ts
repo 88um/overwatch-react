@@ -490,7 +490,7 @@ export const heroes : Hero[] = [
     abilities: "Combat Roll, Magnetic Grenade",
     image: "/dps/cassidy/cassidy.webp",
     ult: "Deadeye",
-    comp: "Poke",
+    comp: "Brawl",
     info: "/herobutton/cassidy.webp"
 
   },
