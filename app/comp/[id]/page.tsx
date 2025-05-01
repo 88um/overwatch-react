@@ -4,7 +4,6 @@ import MapModal from "@/components/modal/MapModal";
 import HeroCard from "@/components/cards/HeroCard";
 import MapCard from "@/components/cards/MapCard";
 import Grid from "@/components/Grid";
-import { Button } from "@/components/ui/button";
 import TeamModal from "@/components/modal/TeamModal";
 
 interface CompPageProps {
@@ -58,7 +57,6 @@ const CompPage: React.FC<CompPageProps> = async ({ params }) => {
           <HeroCard hero={support} />
           <HeroCard hero={support2} />
 
-          {/* Map Card */}
           
         </Grid>
       </div>

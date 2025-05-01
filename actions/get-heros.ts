@@ -1,13 +1,14 @@
 'use server'
 import Fuse from 'fuse.js';
-import { heroes } from "@/data"
+import { db } from '@/db/init';
 
-const fuse = new Fuse(heroes, {
+
+export const getAllHeros = async(query? : string)=>{
+  const heroes = db.data.heroes;
+  const fuse = new Fuse(heroes, {
     keys: ['name', 'role', 'abilities', 'ult', 'comp'],
     threshold: 0.4, // Lower = stricter match (0.0 = perfect match only)
   });
-
-export const getAllHeros = async(query? : string)=>{
 
     if (!query) return heroes;
     const result =fuse.search(query);

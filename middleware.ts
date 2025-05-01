@@ -10,7 +10,7 @@ export async function middleware(request: Request) {
     
   }
   // List of protected routes that require authentication
-  const protectedRoutes = ['/heroes', '/maps'];
+  const protectedRoutes = ['/heroes', '/maps','/comp'];
   
   // Check if the current route is protected
   const isProtectedRoute = protectedRoutes.some(route => pathname.startsWith(route));
@@ -25,5 +25,5 @@ export async function middleware(request: Request) {
 
 // Configure which routes the middleware should run on
 export const config = {
-  matcher: ['/heroes/:path*', '/maps/:path*']
+  matcher: ['/heroes/:path*', '/maps/:path*', '/comp/:path*'],
 }; 

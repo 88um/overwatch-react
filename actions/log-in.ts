@@ -2,7 +2,6 @@
 
 import { db } from "@/db/init";
 import { createSession } from "@/lib/session";
-import { isProduction } from "@/lib/utils";
 
 export const logIn = async (username: string, password: string) => {
   const acc = await db.data.accounts.find((account) => account.username.toLowerCase() == username.toLowerCase() && account.password == password)

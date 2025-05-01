@@ -1,7 +1,7 @@
 import { Hero, Review } from "./types"
 import { Map } from "./types";
 
-
+// Default data for maps, heroes, and reviews when initializing the database
 export const maps : Map[] = [
   //Control
     {

@@ -2,7 +2,6 @@
 import { Hero, Map, Team } from "@/types";
 import { heroes, maps } from "@/data";
 import { db } from "@/db/init";
-import { isProduction } from "@/lib/utils";
 
 interface CreateTeamValues {
   tank?: string;
@@ -79,8 +78,6 @@ export const createTeam = async (values: CreateTeamValues) => {
     }
   }
 
-  const suggestedHeroes: Partial<Record<keyof CreateTeamValues, Hero | undefined>> = {};
-
   const findHero = (role: string): Hero | undefined => {
     const availableHeroes = allHeroes.filter(
       (h) => h.role === role && h.comp === finalComp && !pickedHeroNames.has(h.name)
@@ -107,8 +104,6 @@ export const createTeam = async (values: CreateTeamValues) => {
   // Save the team to the database
   await db.data.teams.push(team);
   await db.write();
-  
- 
 
   return { success: true, id: team.id }; // Return the team ID
 };

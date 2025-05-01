@@ -1,6 +1,5 @@
 'use server'
 
-import { reviews } from "@/data"
 import { db } from "@/db/init"
 import { getSession } from "@/lib/session"
 
