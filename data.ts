@@ -287,13 +287,13 @@ export const reviews : Review[] = [
         stars : 4,
         name : "joshua",
         username : "d",
-        text: "this sucks ass"
+        text: "i love this"
     },
     {
         stars : 4,
         name : "joshua",
         username : "d",
-        text: "this sucks ass"
+        text: "i love this"
     }
 ]
 
