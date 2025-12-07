@@ -21,7 +21,7 @@
     "jose": "^6.0.10",
     "lowdb": "^7.0.1",
     "lucide-react": "^0.487.0",
-    "next": "15.2.5",
+    "next": "15.5.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.55.0",
